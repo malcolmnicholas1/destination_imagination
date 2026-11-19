@@ -1,0 +1,43 @@
+# Conveyor Belt Shape Sorter Configuration
+
+camera:
+  source: "auto"           # "auto", "webcam", "picamera2", "simulate", or "folder"
+  device_index: 0          # Webcam index for macOS (0 = default camera)
+  width: 320               # Low resolution for high FPS on Raspberry Pi Zero (ARMv6)
+  height: 240
+  fps: 20
+
+preprocessing:
+  # Region of Interest (ROI) as fractions of frame [x_min, y_min, x_max, y_max]
+  roi: [0.05, 0.10, 0.95, 0.90]
+  blur_kernel: 5
+  threshold_mode: "otsu"   # "otsu", "adaptive", or "fixed"
+  fixed_threshold: 100
+  invert_threshold: false  # false = bright object on dark backdrop; true = dark object on light backdrop
+  min_contour_area: 600    # Ignore small dust/noise contours (in pixels at 320x240)
+  max_contour_area: 45000
+
+tracker:
+  # Central "Virtual Tripwire" zone as fraction of frame width [x_start, x_end]
+  tripwire_x_range: [0.25, 0.75]
+  min_votes_required: 3    # Minimum frames needed before locking in classification
+  max_frames_gap: 5        # Frames without detection before finalizing/resetting track
+
+classifier:
+  mode: "hybrid"           # "hybrid" (calibrated model + rule fallback), "calibrated", or "rules"
+  model_path: "config/shapes_model.json"
+  confidence_threshold: 0.55
+
+actuation:
+  enabled_on_pi: true
+  travel_delay_sec: 0.75   # Delay between camera classification and object reaching diverter gate
+  hold_duration_sec: 1.0   # How long the servo holds the gate position before returning to neutral
+  # Servo GPIO pins (BCM numbering) and angles for each shape class
+  servo_pin: 18
+  default_angle: 0
+  shape_angles:
+    cube: -45
+    sphere: 0
+    pyramid: 45
+    unknown: 0
+

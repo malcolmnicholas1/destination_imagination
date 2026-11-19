@@ -1,0 +1,104 @@
+{
+  "version": 1,
+  "feature_names": [
+    "extent",
+    "taper_ratio",
+    "top_to_mid_ratio",
+    "circularity",
+    "solidity",
+    "aspect_ratio",
+    "vertices_norm"
+  ],
+  "classes": {
+    "cube": {
+      "count": 25,
+      "feature_names": [
+        "extent",
+        "taper_ratio",
+        "top_to_mid_ratio",
+        "circularity",
+        "solidity",
+        "aspect_ratio",
+        "vertices_norm"
+      ],
+      "mean": [
+        0.8865,
+        1.0,
+        1.0003,
+        0.7673,
+        0.9808,
+        1.0,
+        0.5
+      ],
+      "std": [
+        0.0488,
+        0.0,
+        0.0027,
+        0.0162,
+        0.0058,
+        0.0,
+        0.0
+      ]
+    },
+    "pyramid": {
+      "count": 25,
+      "feature_names": [
+        "extent",
+        "taper_ratio",
+        "top_to_mid_ratio",
+        "circularity",
+        "solidity",
+        "aspect_ratio",
+        "vertices_norm"
+      ],
+      "mean": [
+        0.498,
+        0.3509,
+        0.3271,
+        0.5572,
+        0.9838,
+        0.996,
+        0.375
+      ],
+      "std": [
+        0.0027,
+        0.008,
+        0.0072,
+        0.0042,
+        0.0038,
+        0.0065,
+        0.0
+      ]
+    },
+    "sphere": {
+      "count": 25,
+      "feature_names": [
+        "extent",
+        "taper_ratio",
+        "top_to_mid_ratio",
+        "circularity",
+        "solidity",
+        "aspect_ratio",
+        "vertices_norm"
+      ],
+      "mean": [
+        0.7845,
+        1.0,
+        0.724,
+        0.9071,
+        0.9907,
+        1.0,
+        1.0
+      ],
+      "std": [
+        0.0016,
+        0.0,
+        0.0086,
+        0.0053,
+        0.0021,
+        0.0,
+        0.0
+      ]
+    }
+  }
+}
